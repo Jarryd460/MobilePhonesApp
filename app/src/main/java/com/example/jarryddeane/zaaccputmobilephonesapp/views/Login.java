@@ -1,29 +1,28 @@
-package com.example.jarryddeane.zaaccputmobilephonesapp;
+package com.example.jarryddeane.zaaccputmobilephonesapp.views;
 
-import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.jarryddeane.zaaccputmobilephonesapp.R;
+
+public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.drawable.logout);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-        //ActionBar actionBar = getActionBar();
-        //actionBar.hide();
+        setContentView(R.layout.activity_login);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_login, menu);
         return true;
     }
 
@@ -35,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.shopping_cart) {
-            //Toast.makeText(getApplicationContext(), "Cart Clicked!!!", Toast.LENGTH_LONG).show();
+        if (id == R.id.action_settings) {
             return true;
         }
 

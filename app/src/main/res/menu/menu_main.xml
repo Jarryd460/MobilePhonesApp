@@ -2,13 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
     <item android:id="@+id/shopping_cart"
-        android:icon="@drawable/shoppingcart2"
+        android:icon="@drawable/buy1"
         android:title="@string/shopping_cart"
         android:orderInCategory="100"
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/login"
-        android:icon="@drawable/login"
+        android:icon="@drawable/login11"
         android:title="@string/login"
         android:orderInCategory="100"
         app:showAsAction="ifRoom" />
