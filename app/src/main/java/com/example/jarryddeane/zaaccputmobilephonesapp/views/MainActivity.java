@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //set logo on action bar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.cellyoulater);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -100,6 +101,17 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+        //Get item/icon selected on actionbar
+        int menuid = item.getItemId();
+
+        //check if login/logout clicked
+        //if clicked display login custom dialog
+        if(menuid == R.id.login) {
+            displayLoginDialog();
+        }
+
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -107,8 +119,6 @@ public class MainActivity extends AppCompatActivity {
             //Toast.makeText(getApplicationContext(), "Login Clicked!!!", Toast.LENGTH_LONG).show();
             final Dialog dialog = new Dialog(MainActivity.this);
             dialog.setContentView(R.layout.activity_login);
-
-            Window view = dialog.getWindow();
 
             dialog.setTitle("Login");
             dialog.show();
@@ -175,4 +185,60 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void displayLoginDialog() {
+        final Dialog dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.activity_login);
+        dialog.setTitle("Login");
+        dialog.show();
+
+        //get login button
+        Button login = (Button)dialog.findViewById(R.id.btnlogin);
+
+        //add click event to check if details correct
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //getting login username and password
+                TextView txtusername = (TextView)findViewById(R.id.txtusername);
+                TextView txtpassword = (TextView)findViewById(R.id.txtpassword);
+
+                //checking if username and password fields are blank
+                if(txtusername.getText().toString().isEmpty() || txtpassword.getText().toString().isEmpty()) {
+                    TextView txterror = (TextView)dialog.findViewById(R.id.txterror);
+                    txterror.setText("Fields cannot be blank");
+                    RelativeLayout layouterror = (RelativeLayout)dialog.findViewById(R.id.layouterror);
+                    layouterror.setVisibility(View.VISIBLE);
+                    layouterror.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_down));
+                } else {
+                    final ProgressDialog processDialog = ProgressDialog.show(dialog.getContext(), "", "Authenticating.....", true);
+                    //processDialog.setMessage("Logging in.....");
+                    processDialog.setCancelable(false);
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            processDialog.dismiss();
+                        }
+                    }).start();
+
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        exit();
+    }
+
+    private void exit() {
+        System.exit(1);
+    }
+
 }
