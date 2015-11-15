@@ -16,10 +16,11 @@ public class Customer {
     private List<Orders> orderList;
     private Login login;
     private String isAdmin;
+    private byte[] picture;
 
     public Customer() {}
 
-    public Customer(Name name, String sex, String dateOfBirth, Contact contact, Address address, List<Orders> orderList, Login login, String isAdmin) {
+    public Customer(Name name, String sex, String dateOfBirth, Contact contact, Address address, List<Orders> orderList, Login login, String isAdmin, byte[] picture) {
         //this.id = id;
         this.name = name;
         this.sex = sex;
@@ -29,6 +30,7 @@ public class Customer {
         this.orderList = orderList;
         this.login = login;
         this.isAdmin = isAdmin;
+        this.picture = picture;
     }
 
     public Long getId() {
@@ -102,4 +104,13 @@ public class Customer {
     public void setIsAdmin(String isAdmin) {
         this.isAdmin = isAdmin;
     }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
 }
