@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jarryddeane.zaaccputmobilephonesapp.views.Checkout">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkoutitems"
+        android:layout_below="@+id/btnorder" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:id="@+id/txtname"
+        android:layout_toRightOf="@+id/imgpicture"
+        android:layout_alignTop="@+id/imgpicture"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:id="@+id/txtcontact"
+        android:layout_alignLeft="@+id/txtname"
+        android:layout_below="@+id/txtname"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:id="@+id/txtaddress"
+        android:layout_below="@+id/txtcontact"
+        android:layout_alignLeft="@+id/txtcontact"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:id="@+id/txttotal"
+        android:layout_below="@+id/txtaddress"
+        android:layout_alignLeft="@+id/txtaddress"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imgpicture"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_margin="10dp"
+        android:src="@drawable/buy" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+        android:id="@+id/btnorder"
+        android:layout_below="@+id/txttotal"
+        android:layout_alignLeft="@+id/txttotal"
+        android:textSize="15dp" />
+
+</RelativeLayout>

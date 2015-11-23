@@ -3,48 +3,41 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/layout">
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:id="@+id/imgproduct"
             android:padding="5dp"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentStart="true" />
 
-        <LinearLayout
-            android:orientation="vertical"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:id="@+id/txtname"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:padding="2dp"
+            android:layout_toRightOf="@+id/imgproduct"
+            android:textSize="20dp"
+            android:textColor="#010101"
+            android:layout_toLeftOf="@+id/imgadd" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Medium Text"
-                android:id="@+id/txtname"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:padding="2dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtprice"
-                android:text="TextView"
-                android:layout_marginLeft="10dp"/>
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="right">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtprice"
+            android:text="TextView"
+            android:layout_alignLeft="@+id/txtname"
+            android:layout_below="@+id/txtname"
+            android:textSize="15dp"
+            android:textColor="#010101"
+            android:layout_alignRight="@+id/txtname" />
 
         <ImageView
             android:layout_width="100dp"
@@ -61,7 +54,22 @@
             android:layout_alignParentEnd="false"
             android:src="@drawable/myremove"
             android:layout_below="@+id/imgadd"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:id="@+id/txtid"
+            android:textColor="#010101"
+            android:layout_alignTop="@+id/imgproduct"
+            android:layout_alignBottom="@+id/imgproduct"
+            android:layout_alignRight="@+id/imgproduct"
+            android:layout_alignLeft="@+id/imgproduct"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:visibility="invisible" />
     </RelativeLayout>
 
 </LinearLayout>

@@ -28,6 +28,14 @@
             android:name=".views.CreateEditProduct"
             android:label="@string/title_activity_create_edit_product" >
         </activity>
+        <activity
+            android:name=".views.Checkout"
+            android:label="@string/title_activity_checkout" >
+        </activity>
+        <activity
+            android:name=".views.ViewProduct"
+            android:label="@string/title_activity_view_product" >
+        </activity>
     </application>
 
 </manifest>

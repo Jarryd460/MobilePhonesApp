@@ -16,11 +16,12 @@ public class Customer {
     private List<Orders> orderList;
     private Login login;
     private String isAdmin;
+    private String picuteExtension;
     private byte[] picture;
 
     public Customer() {}
 
-    public Customer(Name name, String sex, String dateOfBirth, Contact contact, Address address, List<Orders> orderList, Login login, String isAdmin, byte[] picture) {
+    public Customer(Name name, String sex, String dateOfBirth, Contact contact, Address address, List<Orders> orderList, Login login, String isAdmin, String pictureExtension, byte[] picture) {
         //this.id = id;
         this.name = name;
         this.sex = sex;
@@ -30,6 +31,7 @@ public class Customer {
         this.orderList = orderList;
         this.login = login;
         this.isAdmin = isAdmin;
+        this.picuteExtension = pictureExtension;
         this.picture = picture;
     }
 
@@ -103,6 +105,14 @@ public class Customer {
 
     public void setIsAdmin(String isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public String getPicuteExtension() {
+        return picuteExtension;
+    }
+
+    public void setPicuteExtension(String picuteExtension) {
+        this.picuteExtension = picuteExtension;
     }
 
     public byte[] getPicture() {

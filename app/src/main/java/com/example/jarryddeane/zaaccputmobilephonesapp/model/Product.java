@@ -19,11 +19,12 @@ public class Product {
     private String memory;
     private List<OrderProduct> orderProductList;
     private List<ProductPrice> productPriceList;
+    private String pictureExtension;
     private byte[] picture;
 
     public Product() {}
 
-    public Product(String name, String manufacturer, BigDecimal price, String operatingSystem, String screenSize, String touchScreen, String camera, String memory, List<OrderProduct> orderProductList, List<ProductPrice> productPriceList, byte[] picture) {
+    public Product(String name, String manufacturer, BigDecimal price, String operatingSystem, String screenSize, String touchScreen, String camera, String memory, List<OrderProduct> orderProductList, List<ProductPrice> productPriceList, String pictureExtension, byte[] picture) {
         //this.id = id;
         this.name = name;
         this.manufacturer = manufacturer;
@@ -35,6 +36,7 @@ public class Product {
         this.memory = memory;
         this.orderProductList = orderProductList;
         this.productPriceList = productPriceList;
+        this.pictureExtension = pictureExtension;
         this.picture = picture;
     }
 
@@ -124,6 +126,14 @@ public class Product {
 
     public void setProductPriceList(List<ProductPrice> productPriceList) {
         this.productPriceList = productPriceList;
+    }
+
+    public String getPictureExtension() {
+        return pictureExtension;
+    }
+
+    public void setPictureExtension(String pictureExtension) {
+        this.pictureExtension = pictureExtension;
     }
 
     public byte[] getPicture() {

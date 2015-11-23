@@ -8,4 +8,6 @@
     <string name="login">Login</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_create_edit_product">CreateEditProduct</string>
+    <string name="title_activity_checkout">Checkout</string>
+    <string name="title_activity_view_product">ViewProduct</string>
 </resources>
