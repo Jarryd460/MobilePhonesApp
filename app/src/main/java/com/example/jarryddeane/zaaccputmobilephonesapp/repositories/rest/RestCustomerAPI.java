@@ -9,6 +9,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,4 +71,12 @@ public class RestCustomerAPI implements RestAPI<Customer,Long> {
         }
         return customers;
     }
+
+    //public String setPicture(Customer entity) {
+        //final String url = BASE_URL+"/customer/setPicture/"+entity.getId().toString();
+        //HttpEntity<InputStream> requestEntity = new HttpEntity<InputStream>(entity.getPicuteExtension(), entity.getPicture(), requestHeaders);
+        //ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, String.class);
+        //return responseEntity.getBody();
+    //}
+
 }

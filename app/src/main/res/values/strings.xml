@@ -7,7 +7,14 @@
     <string name="shopping_cart">Cart</string>
     <string name="login">Login</string>
     <string name="title_activity_login">Login</string>
-    <string name="title_activity_create_edit_product">CreateEditProduct</string>
+    <string name="title_activity_create_edit_product">Create/Edit Product</string>
     <string name="title_activity_checkout">Checkout</string>
-    <string name="title_activity_view_product">ViewProduct</string>
+    <string name="title_activity_view_product">View Product</string>
+    <string name="title_activity_create_edit_customer">Create/Edit Customer</string>
+    <string name="myprofile">My Profile</string>
+    <string name="myorders">My Orders</string>
+    <string name="title_activity_orders"> My Orders</string>
+    <string name="addproduct">Add</string>
+    <string name="editproduct">Edit</string>
+    <string name="deleteproduct">Delete</string>
 </resources>

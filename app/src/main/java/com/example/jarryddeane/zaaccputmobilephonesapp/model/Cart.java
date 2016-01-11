@@ -5,6 +5,7 @@ import com.example.jarryddeane.zaaccputmobilephonesapp.services.impl.OrdersServi
 import com.example.jarryddeane.zaaccputmobilephonesapp.services.impl.ProductServiceImpl;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -185,7 +186,8 @@ public class Cart {
 
             Orders order = new Orders();
             order.setOrderStatus("Confirmed");
-            order.setDateOrderPlaced(new Date().toString());
+            String date = new SimpleDateFormat().format(new Date());
+            order.setDateOrderPlaced(date.toString());
             order.setTotalOrderPrice(BigDecimal.valueOf(orderTotal()));
             order.setOrderProductList(orderProducts);
 
@@ -203,6 +205,8 @@ public class Cart {
                 products.get(i).getOrderProductList().add(lastOrderProduct.get(i));
                 service2.update(products.get(i));
             }
+
+            customer.getOrderList().add(order);
         }
 
         products = null;

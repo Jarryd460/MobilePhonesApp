@@ -1,13 +1,12 @@
 package com.example.jarryddeane.zaaccputmobilephonesapp.views;
 
+
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,47 +14,92 @@ import android.widget.Toast;
 
 import com.example.jarryddeane.zaaccputmobilephonesapp.R;
 import com.example.jarryddeane.zaaccputmobilephonesapp.model.Cart;
-import com.example.jarryddeane.zaaccputmobilephonesapp.model.Product;
-import com.example.jarryddeane.zaaccputmobilephonesapp.services.impl.ProductServiceImpl;
+import com.example.jarryddeane.zaaccputmobilephonesapp.model.Orders;
+import com.example.jarryddeane.zaaccputmobilephonesapp.services.impl.OrdersServiceImpl;
 
 import java.util.List;
 
 /**
- * Created by Jarryd Deane on 2015/11/07.
+ * Created by Jarryd Deane on 2016/01/09.
  */
-public class CustomList extends ArrayAdapter<Product> {
+public class CustomList2 extends ArrayAdapter<Orders> {
 
     private final Activity context;
-    private final List<Product> products;
+    private final List<Orders> orders;
     private Dialog dialog;
-    private Product product;
+    private Orders order;
 
-    public CustomList(Activity context, List<Product> products) {
-        super(context, R.layout.list_view_items, products);
+    public CustomList2(Activity context, List<Orders> orders) {
+        super(context, R.layout.list_view_orders, orders);
 
         this.context = context;
-        this.products = products;
+        this.orders = orders;
     }
 
     public View getView(final int position, final View view, final ViewGroup parent) {
         LayoutInflater layoutInflater = context.getLayoutInflater();
-        View rowView = layoutInflater.inflate(R.layout.list_view_items, null, true);
+        View rowView = layoutInflater.inflate(R.layout.list_view_orders, null, true);
 
         final TextView id = (TextView) rowView.findViewById(R.id.txtid);
-        TextView title = (TextView) rowView.findViewById(R.id.txtname);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.imgproduct);
+        final TextView date = (TextView) rowView.findViewById(R.id.txtdate);
+        TextView status = (TextView) rowView.findViewById(R.id.txtstatus);
         final TextView price = (TextView) rowView.findViewById(R.id.txtprice);
-        final ImageView add = (ImageView) rowView.findViewById(R.id.imgadd);
-        final ImageView remove = (ImageView) rowView.findViewById(R.id.imgsubtract);
+        final ImageView remove = (ImageView) rowView.findViewById(R.id.imgremove);
 
-        title.setText(products.get(position).getName());
+        id.setText(orders.get(position).getId().toString());
+        date.setText(orders.get(position).getDateOrderPlaced().toString());
+        status.setText(orders.get(position).getOrderStatus());
+        price.setText(orders.get(position).getTotalOrderPrice().toString());
 
-        if(products.get(position).getPicture() == null) {
-            imageView.setImageResource(R.drawable.login);
+        remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getContext(), Integer.toString(position), Toast.LENGTH_SHORT).show();
+                try {
+                    if(Cart.getInstance().getCustomer().getOrderList().get(position).getOrderStatus().toString().equals("Pending")) {
+                        new Handler(view.getContext().getMainLooper()).post(new Runnable() {
+                            @Override
+                            public void run() {
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        OrdersServiceImpl service = new OrdersServiceImpl();
+                                        service.delete(Cart.getInstance().getCustomer().getOrderList().get(position));
+                                        Cart.getInstance().getCustomer().getOrderList().remove(position);
+                                    }
+                                }).start();
+                                price.setText(price.getText().toString());
+                            }
+                        });
+                    } else {
+                        Toast.makeText(getContext(), "Order has already been processed.", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+        });
+
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Order: " + id.getText().toString() + "\nPosition: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+/*
+        if(!status.getText().toString().trim().equals("Pending")) {
+            remove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getContext(), "Hey", Toast.LENGTH_SHORT).show();
+                }
+            });
         } else {
-            imageView.setImageResource(R.drawable.login);
+            remove.setVisibility(View.INVISIBLE);
         }
-
+*/
+/*
         try {
             Cart cart = Cart.getInstance();
             int quantity = cart.getProductQuantity(products.get(position));
@@ -76,7 +120,7 @@ public class CustomList extends ArrayAdapter<Product> {
             public void onClick(View v) {
                 final Cart cart = Cart.getInstance();
 
-                if (cart.getCustomer() == null) {
+                if(cart.getCustomer() == null) {
                     Toast.makeText(getContext(), "Please Login before\nattempting to shop", Toast.LENGTH_SHORT).show();
                 } else {
                     cart.addProduct(products.get(position));
@@ -92,7 +136,7 @@ public class CustomList extends ArrayAdapter<Product> {
                                 price.setText(price.getText().toString() + " x" + cart.getProductQuantity(products.get(position)));
                             }
 
-                            if (Checkout.getTotal() != null) {
+                            if(Checkout.getTotal() != null) {
                                 Checkout.getTotal().setText("R" + cart.orderTotal().toString() + "0");
                             }
                         }
@@ -115,7 +159,7 @@ public class CustomList extends ArrayAdapter<Product> {
                         @Override
                         public void run() {
                             price.setText(price.getText().toString().subSequence(0, price.getText().toString().indexOf(" ")));
-                            if (Checkout.getTotal() != null) {
+                            if(Checkout.getTotal() != null) {
                                 Checkout.getTotal().setText("R" + cart.orderTotal().toString() + "0");
                             }
                         }
@@ -129,14 +173,13 @@ public class CustomList extends ArrayAdapter<Product> {
                             if(Checkout.getTotal() != null) {
                                 Checkout.getTotal().setText("R" + cart.orderTotal().toString() + "0");
                             }
-                       }
+                        }
                     });
                 }
                 //Toast.makeText(getContext(), products.get(position).getName() + " removed.\nQuantity: " + cart.getProductQuantity(products.get(position)), Toast.LENGTH_SHORT).show();
             }
         });
 
-        /*
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,15 +225,6 @@ public class CustomList extends ArrayAdapter<Product> {
                     }
                 });
                 thread.start();
-            }
-        });
-        */
-/*
-        rowView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Toast.makeText(getContext(), "Long click!!!", Toast.LENGTH_SHORT).show();
-                return true;
             }
         });
 */

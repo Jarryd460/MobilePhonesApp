@@ -36,6 +36,14 @@
             android:name=".views.ViewProduct"
             android:label="@string/title_activity_view_product" >
         </activity>
+        <activity
+            android:name=".views.CreateEditCustomer"
+            android:label="@string/title_activity_create_edit_customer" >
+        </activity>
+        <activity
+            android:name=".views.Orders"
+            android:label="@string/title_activity_orders" >
+        </activity>
     </application>
 
 </manifest>

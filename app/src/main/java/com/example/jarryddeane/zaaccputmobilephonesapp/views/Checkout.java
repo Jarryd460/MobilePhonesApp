@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,7 +41,7 @@ public class Checkout extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_checkout, menu);
+        //getMenuInflater().inflate(R.menu.menu_checkout, menu);
         return true;
     }
 
@@ -90,7 +89,7 @@ public class Checkout extends AppCompatActivity {
 
                         TextView name = (TextView)findViewById(R.id.txtname);
                         TextView contact = (TextView)findViewById(R.id.txtcontact);
-                        TextView address = (TextView)findViewById(R.id.txtaddress);
+                        TextView address = (TextView)findViewById(R.id.textView9);
                         total = (TextView)findViewById(R.id.txttotal);
                         Button order = (Button)findViewById(R.id.btnorder);
                         //TextView price = (TextView)list.findViewById(R.id.txtprice);

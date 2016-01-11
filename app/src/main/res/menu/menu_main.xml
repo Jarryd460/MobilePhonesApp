@@ -5,11 +5,22 @@
         android:icon="@drawable/buy"
         android:title="@string/shopping_cart"
         android:orderInCategory="100"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item android:id="@+id/login"
         android:icon="@drawable/login"
         android:title="@string/login"
         android:orderInCategory="100"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
+
+    <item android:id="@+id/myprofile"
+        android:title="@string/myprofile"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/myorders"
+        android:title="@string/myorders"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
 </menu>

@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Large Text"
-        android:id="@+id/txtaddress"
+        android:id="@+id/textView9"
         android:layout_below="@+id/txtcontact"
         android:layout_alignLeft="@+id/txtcontact"
         android:textSize="15dp"
@@ -44,8 +44,8 @@
         android:layout_height="wrap_content"
         android:text="Large Text"
         android:id="@+id/txttotal"
-        android:layout_below="@+id/txtaddress"
-        android:layout_alignLeft="@+id/txtaddress"
+        android:layout_below="@+id/textView9"
+        android:layout_alignLeft="@+id/textView9"
         android:textSize="15dp"
         android:layout_marginBottom="10dp" />
 

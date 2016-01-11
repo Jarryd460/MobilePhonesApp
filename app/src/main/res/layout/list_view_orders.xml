@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgorder"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentStart="true"
+            android:padding="5dp"
+            android:src="@drawable/shoppingcart3"
+            android:layout_alignBottom="@+id/txtprice" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID : "
+            android:id="@+id/textView11"
+            android:textColor="#010101"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imgorder"
+            android:padding="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/txtid"
+            android:textSize="20dp"
+            android:textColor="#010101"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_alignTop="@+id/textView11"
+            android:padding="2dp"
+            android:layout_toLeftOf="@+id/imgremove" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/txtdate"
+            android:textSize="20dp"
+            android:textColor="#010101"
+            android:layout_below="@+id/textView11"
+            android:layout_alignLeft="@+id/textView11"
+            android:padding="2dp"
+            android:layout_alignRight="@+id/txtid" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/txtstatus"
+            android:padding="2dp"
+            android:textColor="#010101"
+            android:textSize="20dp"
+            android:layout_alignLeft="@+id/txtdate"
+            android:layout_below="@+id/txtdate"
+            android:layout_alignRight="@+id/txtdate" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/txtprice"
+            android:textColor="#010101"
+            android:textSize="15dp"
+            android:layout_below="@+id/txtstatus"
+            android:layout_alignLeft="@+id/txtstatus"
+            android:layout_alignRight="@+id/txtstatus"
+            android:padding="2dp" />
+
+        <ImageView
+            android:layout_width="108dp"
+            android:layout_height="25dp"
+            android:id="@+id/imgremove"
+            android:src="@drawable/myremove"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/txtdate" />
+
+    </RelativeLayout>
+</LinearLayout>
